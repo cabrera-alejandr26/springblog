@@ -2,17 +2,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <!-- The Parent Dependency -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.5.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.codeup</groupId>
     <artifactId>springblog</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>springblog</name>
     <description>Demo project for Spring Boot</description>
+
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -33,6 +36,9 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- Since spring-boot-starter-web added Tomcat and Spring MVC,
+        the auto-configuration assumes that you are developing a web application
+        and sets up Spring accordingly. -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -58,6 +64,9 @@
     <build>
         <plugins>
             <plugin>
+                <!-- If you use the Maven plugin or the Gradle plugin,
+                executable jars are automatically generated,
+                 and you generally do not need to know the details of how they work. -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>

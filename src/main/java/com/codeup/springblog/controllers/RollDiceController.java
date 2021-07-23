@@ -13,7 +13,7 @@ public class RollDiceController {
         return "guess";
     }
 
-    @GetMapping("/roll-dice/n")
+    @GetMapping("/roll-dice/{n}")
     public String checkGuess(@PathVariable int n, Model model) {
         int magicNumber = (int) Math.floor(Math.random() * 6 + 1);
         boolean check = magicNumber == n;
