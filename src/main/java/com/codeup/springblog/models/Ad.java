@@ -14,11 +14,19 @@ public class Ad {
     @Column(nullable = false)
     private String description;
 
+
+
     public Ad(){
 
     }
 
-    public Ad(long id, String title, String description) {
+    public Ad(long id, String title, String, description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+    }
+
+    public Ad(long id, String title, String description, AdImage adImage) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -46,5 +54,13 @@ public class Ad {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public AdImage getAdImage() {
+        return adImage;
+    }
+
+    public void setAdImage(AdImage adImage) {
+        this.adImage = adImage;
     }
 }

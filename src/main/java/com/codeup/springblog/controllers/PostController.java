@@ -1,6 +1,7 @@
 package com.codeup.springblog.controllers;
 
 
+import com.codeup.springblog.models.Ad;
 import com.codeup.springblog.models.PostRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,4 +41,11 @@ public class PostController {
     public String createPost() {
         return "Create new post.";
     }
+
+    @GetMapping("/ads/create")
+    public String createAndForm(Model model)  {
+        model.addAttribute(("ad", new Ad());
+        return "ads/create";
+    }
+
 }

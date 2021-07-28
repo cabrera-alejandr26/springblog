@@ -6,11 +6,14 @@ import com.codeup.springblog.models.AdRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class AdController {
     private final AdRepository adDao;
+    private final UserRepository userDao;
 
     public AdController(AdRepository adDao) {
         this.adDao = adDao;
@@ -28,5 +31,10 @@ public class AdController {
         return "ads/show";
     }
 
-    @GetMapping()
+    @PostMapping("/ads/create")
+    public String createAd(@ModelAttribute Ad ad)   {
+        ad.setUser(userDao.getById(1L));
+        adDao.save(ad);
+        return "redirect:/ads";
+    }
 }
